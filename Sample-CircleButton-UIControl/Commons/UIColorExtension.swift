@@ -8,9 +8,10 @@
 
 import UIKit
 
-extension UIColor {
 
-    // MARK: - Initializer
+// MARK: - Initializer
+
+extension UIColor {
 
     convenience init(hex: UInt32, alpha: CGFloat = 1.0) {
         let mask = 0x000000FF
@@ -24,6 +25,30 @@ extension UIColor {
         let blue = CGFloat(b) / 255
 
         self.init(red: red, green: green, blue: blue, alpha: alpha)
+    }
+
+}
+
+
+// MARK: - Colors
+
+extension UIColor {
+
+    /*
+     *  暗めの色
+     */
+    func darkColor(brightnessRatio: CGFloat = 0.8) -> UIColor {
+
+        var hue: CGFloat = 0
+        var saturation: CGFloat = 0
+        var brightness: CGFloat = 0
+        var alpha: CGFloat = 0
+
+        if self.getHue(&hue, saturation: &saturation, brightness: &brightness, alpha: &alpha) {
+            return UIColor(hue: hue, saturation: saturation, brightness: brightness * brightnessRatio, alpha: alpha)
+        } else {
+            return self
+        }
     }
 
 }
