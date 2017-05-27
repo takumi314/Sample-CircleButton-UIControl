@@ -41,4 +41,13 @@ class CircleView: UIControl {
         return circleShapedLayer.path?.contains(point) ?? false
     }
 
+    // MARK: - CALayerDelegate
+
+    override func layoutSublayers(of layer: CALayer) {
+        super.layoutSublayers(of: layer)
+        if circleShapedLayer.superlayer == nil {
+            self.layer.addSublayer(circleShapedLayer)
+        }
+    }
+
 }
