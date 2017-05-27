@@ -16,6 +16,9 @@
 		E13880691ED9648400E0B62E /* Sample_CircleButton_UIControlUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13880681ED9648400E0B62E /* Sample_CircleButton_UIControlUITests.swift */; };
 		E13880771ED966AB00E0B62E /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13880761ED966AB00E0B62E /* UIColorExtension.swift */; };
 		E13880781ED966AB00E0B62E /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13880761ED966AB00E0B62E /* UIColorExtension.swift */; };
+		E138807A1ED970A800E0B62E /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13880791ED970A800E0B62E /* CircleView.swift */; };
+		E138807B1ED970A800E0B62E /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13880791ED970A800E0B62E /* CircleView.swift */; };
+		E138807C1ED970A800E0B62E /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13880791ED970A800E0B62E /* CircleView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +53,7 @@
 		E13880681ED9648400E0B62E /* Sample_CircleButton_UIControlUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sample_CircleButton_UIControlUITests.swift; sourceTree = "<group>"; };
 		E138806A1ED9648400E0B62E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E13880761ED966AB00E0B62E /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIColorExtension.swift; path = Commons/UIColorExtension.swift; sourceTree = "<group>"; };
+		E13880791ED970A800E0B62E /* CircleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +111,7 @@
 				E13880511ED9648300E0B62E /* LaunchScreen.storyboard */,
 				E13880541ED9648300E0B62E /* Info.plist */,
 				E13880761ED966AB00E0B62E /* UIColorExtension.swift */,
+				E13880791ED970A800E0B62E /* CircleView.swift */,
 			);
 			path = "Sample-CircleButton-UIControl";
 			sourceTree = "<group>";
@@ -266,6 +271,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E138807A1ED970A800E0B62E /* CircleView.swift in Sources */,
 				E138804B1ED9648300E0B62E /* ViewController.swift in Sources */,
 				E13880771ED966AB00E0B62E /* UIColorExtension.swift in Sources */,
 				E13880491ED9648300E0B62E /* AppDelegate.swift in Sources */,
@@ -276,6 +282,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E138807B1ED970A800E0B62E /* CircleView.swift in Sources */,
 				E138805E1ED9648400E0B62E /* Sample_CircleButton_UIControlTests.swift in Sources */,
 				E13880781ED966AB00E0B62E /* UIColorExtension.swift in Sources */,
 			);
@@ -285,6 +292,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E138807C1ED970A800E0B62E /* CircleView.swift in Sources */,
 				E13880691ED9648400E0B62E /* Sample_CircleButton_UIControlUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -520,6 +528,7 @@
 				E138806F1ED9648400E0B62E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E13880701ED9648400E0B62E /* Build configuration list for PBXNativeTarget "Sample-CircleButton-UIControlTests" */ = {
 			isa = XCConfigurationList;
@@ -528,6 +537,7 @@
 				E13880721ED9648400E0B62E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E13880731ED9648400E0B62E /* Build configuration list for PBXNativeTarget "Sample-CircleButton-UIControlUITests" */ = {
 			isa = XCConfigurationList;
@@ -536,6 +546,7 @@
 				E13880751ED9648400E0B62E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
