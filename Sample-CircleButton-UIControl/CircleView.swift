@@ -12,6 +12,18 @@ import UIKit
 
 class CircleView: UIControl {
 
+    // MARK: - Immutable properties
+
+    let normalColor = UIColor(hex: 0x59acff)
+    let selectedColor = UIColor(hex: 0xFF6E86)
+
+
+    // MARK: - Muttable properties
+
+    var circleColor: UIColor {
+        return self.isSelected ? self.selectedColor : self.normalColor
+    }
+
 
     // MARK: - Shape
 
