@@ -12,16 +12,16 @@ import UIKit
 
 class CircleView: UIControl {
 
-    // MARK: - Immutable properties
+    // MARK: - Properties
 
     let normalColor = UIColor(hex: 0x59acff)
     let selectedColor = UIColor(hex: 0xFF6E86)
 
-    // MARK: - Muttable properties
-
     var circleColor: UIColor {
         return self.isSelected ? self.selectedColor : self.normalColor
     }
+
+    var didTouchUpInsideHandler: (() -> Void)?
 
     // MARK: - Shape
 
@@ -29,11 +29,55 @@ class CircleView: UIControl {
         let path = UIBezierPath(ovalIn: self.bounds)
 
         let circleLayer = CAShapeLayer()
+        circleLayer.fillColor = self.circleColor.cgColor
         circleLayer.path = path.cgPath
-        // 色の指定
 
         return circleLayer
     }()
+
+    // MARK: - UIControl
+
+    override var isHighlighted: Bool {
+        didSet {
+            guard oldValue != self.isHighlighted else { return }
+
+            self.circleShapedLayer.fillColor = self.isHighlighted ?
+                self.circleColor.darkColor().cgColor : self.circleColor.cgColor
+
+            if self.isHighlighted {
+                UIView.animate(
+                    withDuration: 0.05,
+                    delay: 0,
+                    options: [.allowUserInteraction, .beginFromCurrentState],
+                    animations: { [weak self] in
+                        self?.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
+                })
+            } else {
+                UIView.animate(
+                    withDuration: 1,
+                    delay: 0,
+                    usingSpringWithDamping: 0.15,
+                    initialSpringVelocity: 10,
+                    options: [.allowUserInteraction, .beginFromCurrentState],
+                    animations: { [weak self] in
+                        self?.transform = CGAffineTransform.identity
+                })
+            }
+        }
+    }
+
+    override func endTracking(_ touch: UITouch?, with event: UIEvent?) {
+        super.endTracking(touch, with: event)
+
+        // 円内で離した場合のみに反応させる
+        if let point = touch?.location(in: self),
+            let path = self.circleShapedLayer.path,
+            path.contains(point) {
+
+            self.isSelected = !self.isSelected
+            self.didTouchUpInsideHandler?()
+        }
+    }
 
     // MARK: - UIView
 
