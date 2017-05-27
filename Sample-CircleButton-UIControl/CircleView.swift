@@ -17,13 +17,11 @@ class CircleView: UIControl {
     let normalColor = UIColor(hex: 0x59acff)
     let selectedColor = UIColor(hex: 0xFF6E86)
 
-
     // MARK: - Muttable properties
 
     var circleColor: UIColor {
         return self.isSelected ? self.selectedColor : self.normalColor
     }
-
 
     // MARK: - Shape
 
@@ -36,5 +34,11 @@ class CircleView: UIControl {
 
         return circleLayer
     }()
+
+    // MARK: - UIView
+
+    override func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
+        return circleShapedLayer.path?.contains(point) ?? false
+    }
 
 }
