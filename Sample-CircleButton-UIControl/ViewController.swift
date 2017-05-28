@@ -8,7 +8,19 @@
 
 import UIKit
 
+struct GestureCoodinates {
+    var parent: CGPoint
+    var origin: CGPoint
+    var touch: CGPoint {
+        get {
+            return parent - origin
+        }
+    }
+}
+
 class ViewController: UIViewController {
+
+    var gesture: GestureCoodinates!
 
     // MARK: - Life cycle
 
@@ -33,11 +45,29 @@ class ViewController: UIViewController {
         let baseView = UIView(frame: circleView.bounds)
         baseView.backgroundColor = .clear
         baseView.center = self.view.center
+        baseView.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(handlePanGesture)))
         baseView.addSubview(circleView)
 
         return baseView
     }
 
+    @objc private func handlePanGesture(sender: UIGestureRecognizer) {
+        gesture = GestureCoodinates(parent: CGPoint(), origin: CGPoint())
+        switch sender.state {
+        case .began:
+            gesture.parent = sender.location(in: self.view)
+            gesture.origin = (sender.view?.center)!
+            break
+        case .changed:
+            let delta = sender.location(in: self.view) - gesture.parent
+            sender.view?.center = gesture.origin - gesture.touch + delta
+            break
+        case .ended:
+            break
+        default:
+            break
+        }
+    }
 
 }
 
