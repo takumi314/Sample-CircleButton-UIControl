@@ -94,4 +94,10 @@ class CircleView: UIControl {
         }
     }
 
+    // MARK: - Private
+
+    private func explosion() -> Void {
+        self.transform = CGAffineTransform(scaleX: 15.0, y: 15.0)
+    }
+
 }
