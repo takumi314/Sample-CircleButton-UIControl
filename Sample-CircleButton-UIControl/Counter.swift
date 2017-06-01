@@ -28,7 +28,7 @@ struct Counter {
     ///
     private var number: Int {
         didSet {
-            self.number = (number > max || 0 > number) ? 0 : number
+            self.number = (number > max || 0 > number) ? 1 : number
         }
     }
 
