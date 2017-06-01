@@ -10,35 +10,59 @@ import Foundation
 
 struct Counter {
 
+    ///
+    /// The maximum number
+    ///
     public let max: Int
 
+    ///
+    /// true if the total number is maximum one
+    ///
     public var isMaximum: Bool {
         return number >= max
     }
 
+    ///
+    /// The current number that is counted,
+    /// will be reset if over the maximum value
+    ///
     private var number: Int {
         didSet {
-            number = (number > max || 0 > number) ? 0 : number
+            self.number = (number > max || 0 > number) ? 0 : number
         }
     }
+
+    // MARK: - Initializer
 
     init(max: Int = 0,from initial: Int = 0) {
         self.max = max
         self.number = initial
     }
 
+    ///
+    /// add one to the current number
+    ///
     mutating func plusOne() {
-        self.number = self.number + 1
+        self.number = number + 1
     }
 
+    ///
+    /// subtract one from the current number
+    ///
     mutating func minusOne() {
-        self.number = self.number - 1
+        self.number = number - 1
     }
 
+    ///
+    /// set zero into the current number
+    ///
     mutating func reset() {
         self.number = 0
     }
 
+    ///
+    /// return the current number
+    ///
     func count() -> Int {
         return number
     }
