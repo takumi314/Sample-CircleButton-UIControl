@@ -22,6 +22,7 @@ class CircleView: UIControl {
     }
 
     var didTouchUpInsideHandler: (() -> Void)?
+    var counter = Counter(max: 10)
 
     // MARK: - Shape
 
@@ -66,6 +67,14 @@ class CircleView: UIControl {
         }
     }
 
+    override func beginTracking(_ touch: UITouch, with event: UIEvent?) -> Bool {
+        //
+        // カウント数が指定した回数を越えれば,
+        // 爆発のアニメーションを実行する.
+        // else { true を返す }
+        return true
+    }
+
     override func endTracking(_ touch: UITouch?, with event: UIEvent?) {
         super.endTracking(touch, with: event)
 
@@ -76,6 +85,15 @@ class CircleView: UIControl {
 
             self.isSelected = !self.isSelected
             self.didTouchUpInsideHandler?()
+        }
+
+        if touch?.phase == .ended {
+            // カウント数 +1
+            counter.plusOne()
+        }
+
+        if counter.isMaximum {
+            explosion()
         }
     }
 
@@ -92,6 +110,12 @@ class CircleView: UIControl {
         if circleShapedLayer.superlayer == nil {
             self.layer.addSublayer(circleShapedLayer)
         }
+    }
+
+    // MARK: - Private
+
+    private func explosion() -> Void {
+        self.transform = CGAffineTransform(scaleX: 15.0, y: 15.0)
     }
 
 }
