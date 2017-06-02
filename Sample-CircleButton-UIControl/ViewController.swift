@@ -30,8 +30,8 @@ class ViewController: UIViewController {
 
     override func viewWillLayoutSubviews() {
         let baseView = createCircleView()
-        self.view.addSubview(baseView)
-        self.view.backgroundColor = .black
+        view.addSubview(baseView)
+        view.backgroundColor = .black
     }
 
     override func didReceiveMemoryWarning() {
