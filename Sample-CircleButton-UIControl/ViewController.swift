@@ -42,6 +42,8 @@ class ViewController: UIViewController {
 
     private func createCircleView() -> UIView {
         let circleView = CircleView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
+        circleView.addSubview(CircleView.label)
+
         let baseView = UIView(frame: circleView.bounds)
         baseView.backgroundColor = .clear
         baseView.center = self.view.center

@@ -16,8 +16,8 @@ class CircleView: UIControl {
 
     let normalColor = UIColor(hex: 0x59acff)
     let selectedColor = UIColor(hex: 0xFF6E86)
-    let label = UILabel(frame: CGRect(x: 0, y: 0, width: 80, height: 40))
 
+    static var label: CounterLabel = CounterLabel(frame: CGRect(x: 0, y: 0, width: 80, height: 40))
     var circleColor: UIColor {
         return self.isSelected ? self.selectedColor : self.normalColor
     }
@@ -91,18 +91,16 @@ class CircleView: UIControl {
         if touch?.phase == .ended {
             // カウント数 +1
             counter.plusOne()
-            label.text = counter.count().description
-            label.backgroundColor = .clear
-            label.textColor = .black
-            label.textAlignment = .center
-            label.font = UIFont.systemFont(ofSize: 40)
-            label.center = center
-            addSubview(label)
+
+            CircleView.label.writeText(counter.count().description)
+            CircleView.label.config()
+            CircleView.label.center = center
+            addSubview(CircleView.label)
         }
 
         if counter.isMaximum {
             explosion()
-            label.text = ""
+            CircleView.label.eraseText()
         }
     }
 
