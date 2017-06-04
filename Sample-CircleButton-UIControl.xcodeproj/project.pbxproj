@@ -23,6 +23,9 @@
 		E1D015FF1EDB25D0000DCBA7 /* Vectors.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D015FD1EDB25D0000DCBA7 /* Vectors.swift */; };
 		E1F50C2C1EDF317C0073BBD1 /* Counter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F50C2B1EDF317C0073BBD1 /* Counter.swift */; };
 		E1F50C2D1EDF317C0073BBD1 /* Counter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F50C2B1EDF317C0073BBD1 /* Counter.swift */; };
+		E1F50C2F1EE06AD30073BBD1 /* CounterLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F50C2E1EE06AD30073BBD1 /* CounterLabel.swift */; };
+		E1F50C301EE06AD30073BBD1 /* CounterLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F50C2E1EE06AD30073BBD1 /* CounterLabel.swift */; };
+		E1F50C311EE06AD30073BBD1 /* CounterLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F50C2E1EE06AD30073BBD1 /* CounterLabel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +63,7 @@
 		E13880791ED970A800E0B62E /* CircleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
 		E1D015FD1EDB25D0000DCBA7 /* Vectors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Vectors.swift; path = Utils/Vectors.swift; sourceTree = "<group>"; };
 		E1F50C2B1EDF317C0073BBD1 /* Counter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Counter.swift; sourceTree = "<group>"; };
+		E1F50C2E1EE06AD30073BBD1 /* CounterLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CounterLabel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +124,7 @@
 				E13880761ED966AB00E0B62E /* UIColorExtension.swift */,
 				E13880791ED970A800E0B62E /* CircleView.swift */,
 				E1F50C2B1EDF317C0073BBD1 /* Counter.swift */,
+				E1F50C2E1EE06AD30073BBD1 /* CounterLabel.swift */,
 			);
 			path = "Sample-CircleButton-UIControl";
 			sourceTree = "<group>";
@@ -287,6 +292,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1F50C2F1EE06AD30073BBD1 /* CounterLabel.swift in Sources */,
 				E138807A1ED970A800E0B62E /* CircleView.swift in Sources */,
 				E138804B1ED9648300E0B62E /* ViewController.swift in Sources */,
 				E1F50C2C1EDF317C0073BBD1 /* Counter.swift in Sources */,
@@ -305,6 +311,7 @@
 				E138805E1ED9648400E0B62E /* Sample_CircleButton_UIControlTests.swift in Sources */,
 				E1D015FF1EDB25D0000DCBA7 /* Vectors.swift in Sources */,
 				E13880781ED966AB00E0B62E /* UIColorExtension.swift in Sources */,
+				E1F50C301EE06AD30073BBD1 /* CounterLabel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -314,6 +321,7 @@
 			files = (
 				E138807C1ED970A800E0B62E /* CircleView.swift in Sources */,
 				E13880691ED9648400E0B62E /* Sample_CircleButton_UIControlUITests.swift in Sources */,
+				E1F50C311EE06AD30073BBD1 /* CounterLabel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
