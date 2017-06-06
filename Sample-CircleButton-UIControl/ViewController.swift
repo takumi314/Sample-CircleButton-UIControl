@@ -28,10 +28,14 @@ class ViewController: UIViewController {
         super.viewDidLoad()
     }
 
-    override func viewWillLayoutSubviews() {
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         let baseView = createCircleView()
         view.addSubview(baseView)
         view.backgroundColor = .black
+    }
+
+    override func viewWillLayoutSubviews() {
     }
 
     override func didReceiveMemoryWarning() {
