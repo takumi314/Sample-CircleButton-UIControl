@@ -21,6 +21,7 @@ struct GestureCoodinates {
 class ViewController: UIViewController {
 
     var gesture: GestureCoodinates!
+    var baseView: UIView!
 
     // MARK: - Life cycle
 
@@ -28,10 +29,24 @@ class ViewController: UIViewController {
         super.viewDidLoad()
     }
 
-    override func viewWillLayoutSubviews() {
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         let baseView = createCircleView()
         view.addSubview(baseView)
         view.backgroundColor = .black
+    }
+
+    override func viewWillLayoutSubviews() {
+    }
+
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        coordinator.animate(alongsideTransition: { [weak self] (UIViewControllerTransitionCoordinatorContext) in
+            guard let center = self?.view.center else { return }
+            self?.baseView.center = center
+        }, completion: { (UIViewControllerTransitionCoordinatorContext) in
+            //
+        })
     }
 
     override func didReceiveMemoryWarning() {
@@ -44,9 +59,9 @@ class ViewController: UIViewController {
         let circleView = CircleView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
         circleView.addSubview(CircleView.label)
 
-        let baseView = UIView(frame: circleView.bounds)
+        baseView = UIView(frame: circleView.bounds)
         baseView.backgroundColor = .clear
-        baseView.center = self.view.center
+        baseView.center = view.center
         baseView.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(handlePanGesture)))
         baseView.addSubview(circleView)
 
@@ -57,11 +72,11 @@ class ViewController: UIViewController {
         gesture = GestureCoodinates(parent: CGPoint(), origin: CGPoint())
         switch sender.state {
         case .began:
-            gesture.parent = sender.location(in: self.view)
+            gesture.parent = sender.location(in: view)
             gesture.origin = (sender.view?.center)!
             break
         case .changed:
-            let delta = sender.location(in: self.view) - gesture.parent
+            let delta = sender.location(in: view) - gesture.parent
             sender.view?.center = gesture.origin - gesture.touch + delta
             break
         case .ended:
